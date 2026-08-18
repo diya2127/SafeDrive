@@ -1,0 +1,6 @@
+{
+  "name": "SafeDrive",
+  "description": "Real-time web monitoring dashboard for the physical ESP32-S3 SafeDrive wearable smart belt with MAX30102 heart rate, MPU6050 posture, drowsiness, magnetic belt clasp, and SOS emergency tracking via Web Serial API.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

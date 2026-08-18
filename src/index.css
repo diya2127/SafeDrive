@@ -1,0 +1,207 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import url("https://db.onlinewebfonts.com/c/85138d01c09f02f455941801d62d2cfc?family=Bropella");
+
+@font-face {
+  font-family: 'Bropella';
+  src: url("https://db.onlinewebfonts.com/t/85138d01c09f02f455941801d62d2cfc.eot");
+  src: url("https://db.onlinewebfonts.com/t/85138d01c09f02f455941801d62d2cfc.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/85138d01c09f02f455941801d62d2cfc.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/85138d01c09f02f455941801d62d2cfc.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/85138d01c09f02f455941801d62d2cfc.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-mono: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-oled: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-belleza: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-duck-spicy: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-rounded-brand: 'Quicksand', 'Nunito', 'Fredoka', 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-bropella: 'Quicksand', 'Nunito', 'Fredoka', -apple-system, BlinkMacSystemFont, sans-serif;
+
+    --color-primary-bg: #FFFDF8;
+    --color-card-bg: #FFFFFF;
+    --color-secondary-bg: #E7F4EF;
+    --color-sage-bg: #E1F0F2;
+    --color-primary-btn: #3F6B5B;
+    --color-accent: #D9896A;
+    --color-text-main: #26312D;
+  }
+
+  html, body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #FFFDF8 0%, #E7F4EF 50%, #E1F0F2 100%);
+    background-attachment: fixed;
+    color: #26312D;
+    min-height: 100vh;
+  }
+}
+
+.font-rounded-brand {
+  font-family: 'Quicksand', 'Nunito', 'Fredoka', 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-bropella {
+  font-family: 'Quicksand', 'Nunito', 'Fredoka', 'Comfortaa', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-belleza {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-duck-spicy {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-oled {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* OLED Glass / Scanline Effect */
+.oled-screen {
+  background: radial-gradient(circle at 50% 50%, #0d1a2d 0%, #020617 100%);
+  position: relative;
+  box-shadow: inset 0 0 18px rgba(0, 240, 255, 0.18), 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.oled-screen::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 6px 100%;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Custom glowing effects */
+.glow-green {
+  box-shadow: 0 0 16px 3px rgba(34, 197, 94, 0.65);
+}
+
+.glow-yellow {
+  box-shadow: 0 0 16px 3px rgba(234, 179, 8, 0.65);
+}
+
+.glow-red {
+  box-shadow: 0 0 18px 4px rgba(239, 68, 68, 0.75);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 15px 2px rgba(6, 182, 212, 0.5);
+}
+
+/* Custom scrollbars for telemetry & serial monitor */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #E7F4EF;
+}
+::-webkit-scrollbar-thumb {
+  background: #CCE4DF;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F6B5B;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* --- Dashboard Interactive Styles & Animations --- */
+
+/* Clean 2D Interactive Card Wrapper */
+.card-3d-interactive {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-3d-interactive:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08), 0 0 12px rgba(63, 107, 91, 0.05);
+}
+
+.dark .card-3d-interactive:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.08);
+}
+
+/* Flat content helper */
+.card-3d-content {
+  transition: transform 0.3s ease;
+}
+
+/* --- Optimized Dark Mode Typography --- */
+.dark {
+  color-scheme: dark;
+}
+
+.dark html,
+.dark body {
+  background-color: #020617;
+  color: #cbd5e1; /* slate-300: comfortable base reading color */
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: #f1f5f9; /* slate-100: high contrast headings */
+}
+
+.dark strong,
+.dark b {
+  color: #f8fafc; /* slate-50: highlighted bold elements */
+}
+
+/* Override light-theme specific colors in dark mode with custom high-contrast counterparts */
+.dark .text-\[\#26312D\] {
+  color: #f1f5f9 !important; /* Soft white/slate 100 */
+}
+
+.dark .text-\[\#3F6B5B\] {
+  color: #34d399 !important; /* Vivid emerald green */
+}
+
+.dark .text-\[\#D9896A\] {
+  color: #fb923c !important; /* Warm orange */
+}
+
+.dark .text-\[\#5A6B65\] {
+  color: #cbd5e1 !important; /* Soft slate 300 base */
+}
+
+.dark .text-\[\#7D8E87\] {
+  color: #94a3b8 !important; /* Subdued slate 400 for subtext */
+}
+
+.dark .text-slate-800 {
+  color: #cbd5e1 !important; /* Softer base */
+}
+
+
+
+
