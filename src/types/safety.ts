@@ -5,7 +5,6 @@ export type ActiveNavTab =
   | 'heart_rate'
   | 'posture'
   | 'drowsiness'
-  | 'seatbelt'
   | 'alerts'
   | 'history'
   | 'settings';

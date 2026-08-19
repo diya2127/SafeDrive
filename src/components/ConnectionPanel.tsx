@@ -37,7 +37,7 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
   const [showDetails, setShowDetails] = useState(false);
   const [customJsonInput, setCustomJsonInput] = useState('');
 
-  const handleInjectSample = (scenario: 'nominal' | 'high_hr' | 'drowsy' | 'posture' | 'unbuckled' | 'sos') => {
+  const handleInjectSample = (scenario: 'nominal' | 'high_hr' | 'drowsy' | 'posture' | 'sos') => {
     let sample: PhysicalSensorData;
     const now = new Date().toISOString();
     switch (scenario) {
@@ -70,17 +70,6 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
           roll: 12.0,
           drowsiness: false,
           seatbelt: true,
-          sos: false,
-          timestamp: now,
-        };
-        break;
-      case 'unbuckled':
-        sample = {
-          heartRate: 80,
-          pitch: 4.0,
-          roll: 1.5,
-          drowsiness: false,
-          seatbelt: false,
           sos: false,
           timestamp: now,
         };
@@ -194,14 +183,14 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
               onClick={onDisconnect}
               className="px-3 py-1.5 rounded-lg border border-rose-300 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 text-xs font-semibold font-mono-code flex items-center gap-1.5 hover:bg-rose-100 transition-colors shadow-xs"
             >
-              <Power className="w-3.5 h-3.5" /> Disconnect Belt
+              <Power className="w-3.5 h-3.5" /> Disconnect Device
             </button>
           ) : (
             <button
               onClick={onConnect}
               className="px-3.5 py-1.5 rounded-lg bg-[#3F6B5B] hover:bg-[#34584B] active:bg-[#2B4A3E] text-white text-xs font-semibold font-mono-code flex items-center gap-1.5 transition-all shadow-xs border border-[#2B4A3E] dark:border-[#528472]"
             >
-              <Cable className="w-3.5 h-3.5" /> Connect Belt (USB Serial)
+              <Cable className="w-3.5 h-3.5" /> Connect Device (USB Serial)
             </button>
           )}
 
@@ -229,7 +218,7 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
               <AlertCircle className="w-4.5 h-4.5 text-amber-950 dark:text-amber-300 shrink-0" />
             </div>
             <span className="font-medium text-slate-950 dark:text-amber-100 leading-tight">
-              <strong className="font-extrabold text-amber-950 dark:text-amber-200">WEARABLE BELT OFFLINE:</strong> Connect your physical ESP32-S3 wearable belt via USB-C or plug in the serial port to stream live driver metrics.
+              <strong className="font-extrabold text-amber-950 dark:text-amber-200">DEVICE OFFLINE:</strong> Connect your physical ESP32-S3 sensor device via USB-C or plug in the serial port to stream live driver metrics.
             </span>
           </div>
           <span className="text-[10px] uppercase font-black tracking-wider px-3 py-1 rounded-lg bg-slate-950 text-amber-300 dark:bg-amber-400 dark:text-slate-950 border border-amber-500/50 shrink-0 self-start sm:self-auto shadow-xs">
@@ -275,12 +264,6 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
                 + Posture Frame
               </button>
               <button
-                onClick={() => handleInjectSample('unbuckled')}
-                className="px-2 py-0.5 rounded bg-amber-500/15 text-amber-700 dark:text-amber-300 text-[10px] font-bold hover:bg-amber-500/25"
-              >
-                + Belt Unclasped
-              </button>
-              <button
                 onClick={() => handleInjectSample('sos')}
                 className="px-2 py-0.5 rounded bg-rose-600 text-white text-[10px] font-bold hover:bg-rose-700"
               >
@@ -300,7 +283,7 @@ export const ConnectionPanel: React.FC<ConnectionPanelProps> = ({
             </div>
             <code>
               {lastRawPacket ||
-                '{"heartRate": 78, "pitch": 6.2, "roll": 2.4, "drowsiness": false, "seatbelt": true, "sos": false, "timestamp": "2026-08-18T10:42:18"}'}
+                '{"heartRate": 78, "pitch": 6.2, "roll": 2.4, "drowsiness": false, "sos": false, "timestamp": "2026-08-18T10:42:18"}'}
             </code>
           </div>
         </div>

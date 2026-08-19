@@ -46,8 +46,8 @@ export function evaluateSafetyState(
     ? 'DROWSINESS_DETECTED'
     : 'NOT_DETECTED';
 
-  // 4. Evaluate Seatbelt
-  const seatbeltStatus: 'FASTENED' | 'UNBUCKLED' = seatbelt ? 'FASTENED' : 'UNBUCKLED';
+  // 4. Evaluate Seatbelt (Feature removed, default to fastened)
+  const seatbeltStatus: 'FASTENED' | 'UNBUCKLED' = 'FASTENED';
 
   // 5. Evaluate SOS
   const sosStatus: 'INACTIVE' | 'ACTIVATED' = sos ? 'ACTIVATED' : 'INACTIVE';
@@ -97,19 +97,6 @@ export function evaluateSafetyState(
   }
 
   // WARNING Conditions:
-  if (!seatbelt) {
-    return {
-      status: 'WARNING',
-      primaryReason: 'WEARABLE BELT UNFASTENED',
-      heartRateStatus: hrStatus,
-      postureStatus,
-      drowsinessStatus,
-      seatbeltStatus,
-      sosStatus,
-      highestPrioritySeverity: 'WARNING',
-    };
-  }
-
   if (hrStatus === 'WARNING') {
     return {
       status: 'WARNING',

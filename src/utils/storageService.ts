@@ -70,13 +70,6 @@ function generateFakeSafetyEvents(): SafetyEventLog[] {
 
   return [
     {
-      id: 'event_fake_1',
-      timestamp: makeTimeStr(28 * 60 * 1000),
-      category: 'SEATBELT',
-      severity: 'WARNING',
-      description: 'Wearable Belt Unfastened: Please Secure Smart Belt on Driver',
-    },
-    {
       id: 'event_fake_2',
       timestamp: makeTimeStr(20 * 60 * 1000),
       category: 'POSTURE',
@@ -111,15 +104,6 @@ function generateFakeAlerts(): AlertItem[] {
   };
 
   return [
-    {
-      id: 'alert_fake_1',
-      type: 'Wearable Belt Unfastened',
-      severity: 'WARNING',
-      message: 'Wearable Belt Unfastened: Please Secure Smart Belt on Driver',
-      timestamp: makeTimeStr(28 * 60 * 1000),
-      sensorSource: 'SEATBELT_BUCKLE',
-      acknowledged: true,
-    },
     {
       id: 'alert_fake_2',
       type: 'Poor Posture',

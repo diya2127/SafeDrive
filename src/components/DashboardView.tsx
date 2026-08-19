@@ -194,8 +194,8 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
         </div>
       </div>
 
-      {/* 2. Five Core Sensor Status Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3.5">
+      {/* 2. Four Core Sensor Status Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
         {/* 1. ❤️ Heart Rate (MAX30102) */}
         <div
           onClick={() => onNavigateTab('heart_rate')}
@@ -407,76 +407,6 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         </div>
 
-        {/* 4. Wearable Belt Clasp (Hall Sensor) */}
-        <div
-          onClick={() => onNavigateTab('seatbelt')}
-          className={`border rounded-xl p-4 transition-all cursor-pointer card-3d-interactive ${
-            isDark ? 'bg-slate-900 border-slate-800' : 'bg-white border-[#E2EBE5] shadow-xs'
-          } ${
-            safetyState.seatbeltStatus === 'UNBUCKLED' ? 'border-amber-500 bg-amber-500/10 shadow-md' : ''
-          }`}
-        >
-          <div className="flex items-center justify-between card-3d-content">
-            <span className="text-xs font-mono-code font-bold text-[#7D8E87] flex items-center gap-1.5">
-              {sensorData?.seatbelt ? (
-                <Lock className="w-3.5 h-3.5 text-[#3F6B5B]" />
-              ) : (
-                <LockOpen className="w-3.5 h-3.5 text-amber-500" />
-              )}
-              Wearable Belt Clasp
-            </span>
-            <ChevronRight className="w-4 h-4 text-slate-400" />
-          </div>
-
-          <div className="mt-3 card-3d-content">
-            {/* 2D Belt Clasp State Indicator */}
-            <div className="flex items-center justify-center h-[70px] my-2">
-              <div
-                className={`w-14 h-14 rounded-full flex items-center justify-center border-2 transition-all ${
-                  isConnected && sensorData && sensorData.seatbelt
-                    ? 'bg-[#3F6B5B]/10 border-[#3F6B5B] text-[#3F6B5B] dark:bg-[#3F6B5B]/20 dark:border-emerald-500 dark:text-emerald-400'
-                    : 'bg-rose-500/10 border-rose-500 text-rose-600 dark:text-rose-400'
-                }`}
-              >
-                {isConnected && sensorData && sensorData.seatbelt ? (
-                  <Lock className="w-8 h-8" />
-                ) : (
-                  <LockOpen className="w-8 h-8" />
-                )}
-              </div>
-            </div>
-            <div className="text-lg font-bold font-mono-code">
-              {isConnected && sensorData ? (
-                sensorData.seatbelt ? (
-                  <span className="text-emerald-600 dark:text-emerald-400">
-                    FASTENED
-                  </span>
-                ) : (
-                  <span className="text-rose-600 dark:text-rose-400">
-                    UNFASTENED
-                  </span>
-                )
-              ) : (
-                <span className="text-slate-400">--</span>
-              )}
-            </div>
-
-            <div className="mt-2 flex items-center justify-between text-xs font-mono-code pt-1">
-              <span className="text-[#5A6B65] dark:text-slate-400">Belt Clasp:</span>
-              <span
-                className={`font-bold px-1.5 py-0.5 rounded text-[10px] ${
-                  !isConnected
-                    ? 'text-slate-400'
-                    : sensorData?.seatbelt
-                    ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
-                    : 'bg-rose-500/20 text-rose-700 dark:text-rose-300'
-                }`}
-              >
-                {isConnected ? (sensorData?.seatbelt ? 'LATCHED' : 'RELEASED') : 'OFFLINE'}
-              </span>
-            </div>
-          </div>
-        </div>
 
         {/* 5. SOS Emergency */}
         <div

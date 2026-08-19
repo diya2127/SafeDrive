@@ -45,10 +45,8 @@ export const Navigation: React.FC<NavigationProps> = ({
     { id: 'heart_rate', label: 'Heart Rate', icon: Activity },
     { id: 'posture', label: 'Posture', icon: Compass },
     { id: 'drowsiness', label: 'Drowsiness', icon: EyeOff },
-    { id: 'seatbelt', label: 'Wearable Belt', icon: Lock },
     { id: 'alerts', label: 'Alerts', icon: Bell },
     { id: 'history', label: 'History', icon: History },
-    { id: 'settings', label: 'Settings', icon: Settings },
   ];
 
   return (
@@ -132,17 +130,22 @@ export const Navigation: React.FC<NavigationProps> = ({
             </div>
           </div>
 
-          {/* Mobile Theme Toggle */}
+          {/* Mobile Settings Icon */}
           <div className="flex md:hidden items-center gap-2">
             <button
-              onClick={onToggleTheme}
+              onClick={() => onSelectTab('settings')}
               className={`p-2 rounded-lg border text-xs transition-colors ${
-                isDark
-                  ? 'bg-slate-900 border-slate-700 text-amber-400 hover:bg-slate-800 hover:border-slate-600'
+                activeTab === 'settings'
+                  ? isDark
+                    ? 'bg-[#3F6B5B] text-white border-[#528472]'
+                    : 'bg-[#3F6B5B] text-white border-[#2B4A3E]'
+                  : isDark
+                  ? 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-slate-600 hover:text-white'
                   : 'bg-white border-[#CCE4DF] text-[#26312D] hover:bg-[#E7F4EF] hover:border-[#B8DDD6]'
               }`}
+              title="Open Settings"
             >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+              <Settings className="w-4 h-4" />
             </button>
           </div>
         </div>
@@ -214,17 +217,21 @@ export const Navigation: React.FC<NavigationProps> = ({
             <span>{overallStatus}</span>
           </div>
 
-          {/* Theme Toggle Button */}
+          {/* Desktop Settings Icon */}
           <button
-            onClick={onToggleTheme}
+            onClick={() => onSelectTab('settings')}
             className={`p-2 rounded-lg border text-xs transition-colors ${
-              isDark
-                ? 'bg-slate-900 border-slate-700 text-amber-400 hover:bg-slate-800 hover:border-slate-600'
+              activeTab === 'settings'
+                ? isDark
+                  ? 'bg-[#3F6B5B] text-white border-[#528472]'
+                  : 'bg-[#3F6B5B] text-white border-[#2B4A3E]'
+                : isDark
+                ? 'bg-slate-900 border-slate-700 text-slate-300 hover:bg-slate-800 hover:border-slate-600 hover:text-white'
                 : 'bg-white border-[#CCE4DF] text-[#26312D] hover:bg-[#E7F4EF] hover:border-[#B8DDD6]'
             }`}
-            title={isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            title="Open Settings"
           >
-            {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4 text-[#3F6B5B]" />}
+            <Settings className="w-4 h-4" />
           </button>
         </div>
       </div>

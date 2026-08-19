@@ -29,7 +29,6 @@ import { DashboardView } from './components/DashboardView';
 import { HeartRateView } from './components/HeartRateView';
 import { PostureView } from './components/PostureView';
 import { DrowsinessView } from './components/DrowsinessView';
-import { SeatbeltView } from './components/SeatbeltView';
 import { AlertCenterView } from './components/AlertCenterView';
 import { HistoryView } from './components/HistoryView';
 import { SettingsView } from './components/SettingsView';
@@ -68,7 +67,7 @@ export const App: React.FC = () => {
   // Connection State
   const [connectionStatus, setConnectionStatus] = useState<SerialConnectionStatus>({
     isConnected: true,
-    portName: 'Simulated ESP32 Wearable Belt',
+    portName: 'Simulated ESP32 Device',
     connectionType: 'USB Serial (Web Serial API)',
     baudRate: settings.baudRate || 115200,
     lastReceivedTimestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
@@ -299,15 +298,7 @@ export const App: React.FC = () => {
         );
       }
 
-      // Evaluate Wearable Belt Alerts
-      if (!data.seatbelt) {
-        triggerAlert(
-          'Wearable Belt Unfastened',
-          'WARNING',
-          'Wearable Belt Unfastened: Please Secure Smart Belt on Driver',
-          'SEATBELT_BUCKLE'
-        );
-      }
+
 
       // Evaluate SOS Emergency Alerts
       if (data.sos) {
@@ -499,14 +490,6 @@ export const App: React.FC = () => {
           />
         )}
 
-        {activeTab === 'seatbelt' && (
-          <SeatbeltView
-            sensorData={sensorData}
-            isConnected={connectionStatus.isConnected}
-            events={safetyEvents}
-            theme={settings.theme}
-          />
-        )}
 
         {activeTab === 'alerts' && (
           <AlertCenterView

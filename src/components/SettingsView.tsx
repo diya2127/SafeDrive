@@ -10,9 +10,11 @@ import {
   Cpu,
   EyeOff,
   Heart,
+  Moon,
   RotateCcw,
   Save,
   Settings,
+  Sun,
   Volume2,
   VolumeX,
 } from 'lucide-react';
@@ -245,6 +247,46 @@ export const SettingsView: React.FC<SettingsViewProps> = ({
                   />
                 </button>
               </div>
+            </div>
+          </div>
+
+          {/* 3. Appearance & Theme Settings */}
+          <div className="space-y-4 bg-slate-500/5 dark:bg-slate-500/10 border border-slate-200 dark:border-slate-800 rounded-xl p-4 transition-colors md:col-span-2">
+            <div className="flex items-center gap-2 border-b pb-2 border-slate-200 dark:border-slate-800">
+              <Sun className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+              <h3 className="text-sm font-bold font-mono-code text-slate-800 dark:text-slate-200">
+                3. System Theme & Appearance
+              </h3>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {/* Light Mode option */}
+              <button
+                type="button"
+                onClick={() => handleChange('theme', 'light')}
+                className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all gap-2 ${
+                  draft.theme === 'light'
+                    ? 'border-[#3F6B5B] bg-[#3F6B5B]/5 text-[#3F6B5B]'
+                    : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white/50 dark:bg-slate-950/50 text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                <Sun className={`w-6 h-6 ${draft.theme === 'light' ? 'text-[#3F6B5B]' : 'text-slate-400'}`} />
+                <span className="text-xs font-bold font-mono-code">Light Mode</span>
+              </button>
+
+              {/* Dark Mode option */}
+              <button
+                type="button"
+                onClick={() => handleChange('theme', 'dark')}
+                className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all gap-2 ${
+                  draft.theme === 'dark'
+                    ? 'border-[#3F6B5B] bg-[#3F6B5B]/5 text-[#3F6B5B]'
+                    : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 bg-white/50 dark:bg-slate-950/50 text-slate-600 dark:text-slate-400'
+                }`}
+              >
+                <Moon className={`w-6 h-6 ${draft.theme === 'dark' ? 'text-emerald-400' : 'text-slate-400'}`} />
+                <span className="text-xs font-bold font-mono-code">Dark Mode</span>
+              </button>
             </div>
           </div>
         </div>

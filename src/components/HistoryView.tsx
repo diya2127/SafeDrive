@@ -85,7 +85,6 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
   const chartData = [
     { name: 'Drowsiness', count: categoryCounts.DROWSINESS, fill: '#ef4444' },
     { name: 'Posture', count: categoryCounts.POSTURE, fill: '#f59e0b' },
-    { name: 'Wearable Belt', count: categoryCounts.SEATBELT, fill: '#3b82f6' },
     { name: 'Heart Rate', count: categoryCounts.HEART_RATE, fill: '#e11d48' },
     { name: 'SOS', count: categoryCounts.SOS, fill: '#dc2626' },
   ];
@@ -276,7 +275,6 @@ export const HistoryView: React.FC<HistoryViewProps> = ({
               { id: 'ALL', label: 'ALL' },
               { id: 'DROWSINESS', label: 'DROWSINESS' },
               { id: 'POSTURE', label: 'POSTURE' },
-              { id: 'SEATBELT', label: 'WEARABLE BELT' },
               { id: 'HEART_RATE', label: 'HEART RATE' },
               { id: 'SOS', label: 'SOS' },
             ].map((cat) => (
